@@ -1,71 +1,55 @@
 package com.api.sic.Entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "local",schema = "public")
+@Data @NoArgsConstructor @AllArgsConstructor 
 public class Local implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-    @Column(name = "local_id", nullable = false, updatable = false)
+    @Column(name = "locid", nullable = false, updatable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int local_id;
-  @Column(name = "designation", insertable=true, updatable=true, nullable=true)
-    private String designation;
+    private int locid;
+	@ManyToOne
+	private Propriete propid;
+  @Column(name = "locnom", insertable=true, updatable=true, nullable=true)
+    private String locnom;
 
     @Column(name = "lieu", insertable=true, updatable=true, nullable=true)
     private String lieu;
+    @NotBlank
+	@Size(max = 20)
+	 @Column(name = "prix", nullable = false, updatable = true)
+	private int prix; 
+    @NotBlank
+  	@Size(max = 20)
+  	 @Column(name = "nbrepiece", nullable = false, updatable = true)
+  	private int nbrepiece;
+    private String img;
+	/*
+	@OneToMany(mappedBy = "local")
+	private Collection<Contrat> contrat;
 
-	
-
-	public int getLocal_id() {
-		return local_id;
-	}
-
-	public void setLocal_id(int local_id) {
-		this.local_id = local_id;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
-	public String getLieu() {
-		return lieu;
-	}
-
-	public void setLieu(String lieu) {
-		this.lieu = lieu;
-	}
-
-	public Local(int local_id, String designation, String lieu) {
-		super();
-		this.local_id = local_id;
-		this.designation = designation;
-		this.lieu = lieu;
-	}
-
-	public Local() {
-		
-	}
-
-	@Override
-	public String toString() {
-		return "Local [local_id=" + local_id + ", designation=" + designation + ", lieu=" + lieu + "]";
-	}
-	
-	
-    
-    
+	@ManyToOne
+@JoinColumn(name = "propid", nullable = false )
+private Propriete propriete;
+    */
 
 }

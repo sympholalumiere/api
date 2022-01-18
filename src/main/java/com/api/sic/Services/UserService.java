@@ -1,5 +1,6 @@
 package com.api.sic.Services;
 
+/*
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,8 @@ import com.api.sic.Entities.User;
 import com.api.sic.Repository.UserRepository;
 
 @Service
-public class UserService {
+*/
+public class UserService {/*
 	@Autowired
 	private UserRepository userRepository;
 	//service permettant de lister toutes les utilisateurs 
@@ -39,7 +41,7 @@ public class UserService {
 				users.set(i, local);
 				return;
 			}
-		}*/
+		}*//*
 		
 		userRepository.save(user);
 	}
@@ -50,4 +52,5 @@ public class UserService {
 		//users.removeIf(c -> c.getId()==id);
 		userRepository.deleteById(id);
 	}
+	*/
 }

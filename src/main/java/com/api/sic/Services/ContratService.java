@@ -17,14 +17,14 @@ public class ContratService {
 	
 	//service permettant de lister toutes les contrats 
 	
-	public List<Contrat> GetAllContrats(@PathVariable int id){
+	public List<Contrat> GetAllContrats(@PathVariable int locid){
 		List<Contrat> contrats= new ArrayList<>();
 		contratRepository.findAll().forEach(contrats::add);
 		return contrats;
 	}
-	public Optional<Contrat> getContrat(int id) {
+	public Optional<Contrat> getContrat(int locid) {
 		//return contrats.stream().filter(c -> c.getId()==id).findFirst().get();
-		return contratRepository.findById(id);
+		return contratRepository.findById(locid);
 	}
 	//service permettant d'ajouter un contrat dans le système
 	
@@ -33,7 +33,7 @@ public class ContratService {
 }
 	//service permettant de modifier un contrat dans le système
 	
-	public void updateContrat(int id, Contrat contrat) {
+	public void updateContrat(int locid, Contrat contrat) {
 		/*for(int i=0;i<contrats.size();i++) {
 			Local c = contrats.get(i);
 			if(c.getId()==id) {

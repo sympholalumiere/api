@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.sic.Entities.Contrat;
-import com.api.sic.Entities.User;
+import com.api.sic.Entities.Locataire;
 import com.api.sic.Repository.ContratRepository;
 import com.api.sic.Services.ContratService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping(value = "/api/sic/contrat")
+@RequestMapping(value = "/api/tp/contrat")
 public class ContratController {
 	@Autowired
 	private ContratRepository contratRepository;
@@ -44,10 +44,10 @@ public Contrat getContratById(@PathVariable("contrat_id") int contrat_id) {
     return contratRepository.findById(contrat_id).get();
 
 }
-	//Ajouter une Contrat à un client
-	@RequestMapping(method = RequestMethod.POST, value="/user/{id}")
-	public void addContrat(@RequestBody Contrat contrat, @PathVariable int id) {
-		contrat.setId (new User());
+	//Ajouter une Contrat à un locataire
+	@RequestMapping(method = RequestMethod.POST, value="/locat/{locid}")
+	public void addContrat(@RequestBody Contrat contrat, @PathVariable int locid) {
+		contrat.setLocatid (new Locataire());
 		contratService.addContrat(contrat);
 	} 
 	
@@ -58,10 +58,10 @@ public Contrat createContrat(@RequestBody Contrat contrat) {
     return contratRepository.save(contrat);
 }
 	//Mise à jour d'un contrat
-		@RequestMapping(method = RequestMethod.PUT, value="/{id}/contrats/{contrat_id}")
-		public void updateContrat(@RequestBody Contrat contrat,@PathVariable int contrat_id,@PathVariable int id) {
-			contrat.setId (new User());
-			contratService.updateContrat(contrat_id, contrat);
+		@RequestMapping(method = RequestMethod.PUT, value="/{id}/contrats/{contid}")
+		public void updateContrat(@RequestBody Contrat contrat,@PathVariable int contid) {
+			contrat.setLocatid (new Locataire());
+			contratService.updateContrat(contid, contrat);
 		}
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value="/contrat/",method=RequestMethod.PUT)
@@ -70,10 +70,10 @@ public Contrat updateContrat(@RequestBody Contrat local) {
     return contratRepository.save(local);
 
 }
-	//suppression d'une facture
-		@RequestMapping(method = RequestMethod.DELETE, value="/{id}/contrats/{contrat_id}")
-		public void deleteContrat(@PathVariable int contrat_id) {
-			contratService.deleteContrat(contrat_id);
+	//suppression d'un contrat
+		@RequestMapping(method = RequestMethod.DELETE, value="/{id}/contrats/{contid}")
+		public void deleteContrat(@PathVariable int contid) {
+			contratService.deleteContrat(contid);
 		}
 /*	@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value="/{contrat_id}",method=RequestMethod.DELETE)

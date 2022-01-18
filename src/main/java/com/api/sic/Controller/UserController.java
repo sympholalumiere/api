@@ -1,4 +1,5 @@
 package com.api.sic.Controller;
+/*
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,9 @@ import com.api.sic.Repository.UserRepository;
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/api/sic/users/")
+*/
 public class UserController {
-	@Autowired
+	/*@Autowired
 	private UserRepository userRepository;
 	@GetMapping(value = "all")
 	public List<User>getAllUsers(){
@@ -56,5 +58,5 @@ public void  deleteUser(@PathVariable("id") int userId) {
 
 	userRepository.deleteById(userId);
 
-}
+}*/
 }

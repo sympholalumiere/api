@@ -1,7 +1,9 @@
 package com.api.sic.Services;
 
+/*
 import java.util.ArrayList;
 import java.util.List;
+*/
 //import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +18,14 @@ public class FactureService {
 	private FactureRepository factureRepository;
 	
 	
-
+/*
 	public List<Facture> GetAllFactures(int id){
 		List<Facture> factures = new ArrayList<>();
-		factureRepository.findById(id)
+		factureRepository.getAll(id)
 		.forEach(factures::add);
 		return factures;
 	}
+	*/
 	
 /*	public Optional<Facture> getFacture(long id) {
 		//return factures.stream().filter(f -> f.getId()==id).findFirst().get();
